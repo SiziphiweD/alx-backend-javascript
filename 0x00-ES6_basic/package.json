@@ -1,0 +1,25 @@
+{
+  "name": "0x00-ES6-Basics",
+  "version": "1.0.0",
+  "description": "ES6-javascript",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "author": "Siziphiwe Dlamini",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babel-jest": "^27.2.5",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "jest": "^27.2.5"
+  }
+}
+
