@@ -4,24 +4,13 @@ export default class HolbertonClass {
     this._location = location;
   }
 
-  // Getter for the 'size' attribute
-  get size() {
-    return this._size;
-  }
-
-  // Getter for the 'location' attribute
-  get location() {
-    return this._location;
-  }
-
-  // Casting behavior when the class is cast into a Number
-  valueOf() {
-    return this._size;
-  }
-
-  // Casting behavior when the class is cast into a String
-  toString() {
-    return this._location;
+  [Symbol.toPrimitive](hint) {
+    if (hint === 'string') {
+      return this._location;
+    }
+    if (hint === 'number') {
+      return this._size;
+    }
+    return null;
   }
 }
-

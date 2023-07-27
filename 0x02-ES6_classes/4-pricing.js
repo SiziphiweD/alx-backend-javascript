@@ -1,52 +1,34 @@
-import Currency from './3-currency.js';
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
-    this._amount = 0;
-    this._currency = new Currency('', '');
-
-    this.amount = amount;
-    this.currency = currency;
+    this._amount = amount;
+    this._currency = currency;
   }
 
-  // Getter and setter for the 'amount' attribute
   get amount() {
     return this._amount;
   }
 
-  set amount(amount) {
-    if (typeof amount === 'number') {
-      this._amount = amount;
-    } else {
-      throw new TypeError('Amount must be a number');
-    }
-  }
-
-  // Getter and setter for the 'currency' attribute
   get currency() {
     return this._currency;
   }
 
-  set currency(currency) {
-    if (currency instanceof Currency) {
-      this._currency = currency;
-    } else {
-      throw new TypeError('Currency must be an instance of Currency');
-    }
+  set amount(newAmount) {
+    if (typeof newAmount !== 'number') throw TypeError('amount must be a number');
+    this._amount = newAmount;
   }
 
-  // Method to display the full price in the format: amount currency_name (currency_code)
+  set currency(newCurrency) {
+    if (!(newCurrency instanceof Currency)) throw TypeError('currency must be a Currency');
+    this._currency = newCurrency;
+  }
+
   displayFullPrice() {
-    const { _name, _code } = this._currency;
-    return `${this._amount} ${_name} (${_code})`;
+    return `${this.amount} ${this.currency.name} (${this.currency.code})`;
   }
 
-  // Static method to convert price based on conversionRate
   static convertPrice(amount, conversionRate) {
-    if (typeof amount !== 'number' || typeof conversionRate !== 'number') {
-      throw new TypeError('Amount and conversionRate must be numbers');
-    }
     return amount * conversionRate;
   }
 }
-
