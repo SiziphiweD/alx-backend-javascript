@@ -1,4 +1,4 @@
-// File: 0-main.js
+// 0-main.js
 
 import getListStudents from "./0-get_list_students.js";
 
